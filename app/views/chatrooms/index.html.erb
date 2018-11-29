@@ -1,0 +1,18 @@
+<h1>Chat rooms</h1>
+
+<p class="lead"><%= link_to 'New chat room', new_chatroom_path, class: 'btn btn-primary' %></p>
+
+<% if @chatrooms %>
+  <ul>
+    <% @chatrooms.each do |chat| %>   
+      <li>
+        <strong><%= chat.topic %></strong>
+        <%= link_to "Enter", chatroom_path(chat), class: 'btn btn-xs btn-primary' %>
+        <%= link_to "Delete this chatroom", chatroom_path(chat), 
+                          method: :delete,
+                          data: {confirm: "Are you sure?"}, 
+                          class: "btn btn-xs btn-danger" %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>

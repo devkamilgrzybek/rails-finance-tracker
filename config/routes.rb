@@ -3,11 +3,16 @@ Rails.application.routes.draw do
   resources :user_stocks, except: [:show, :edit, :update]
   resources :users, only: [:show]
   resources :friendships
+  
+  mount ActionCable.server => '/cable'
+
+  resources :chatrooms, param: :id
+  resources :messages
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'welcome#index'
+  root 'home#index'
   get 'my_portfolio', to: "users#my_portfolio"
   get 'search_stocks', to: "stocks#search"
   get 'my_friends', to: "users#my_friends"

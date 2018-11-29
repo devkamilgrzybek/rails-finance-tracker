@@ -12,6 +12,7 @@
           <li><%= link_to "My Portfolio", my_portfolio_path  %></li>
           <li><%= link_to "My Profile", edit_registration_path(current_user) %></li>
           <li><%= link_to "My Friends", my_friends_path  %></li>
+          <li><%= link_to "Chatrooms",  chatrooms_path  %></li>
           <li><a><%= current_user.full_name.present? ? current_user.full_name : current_user.email %></a></li>
           <li><%= link_to("Logout", destroy_user_session_path,
                                   class: "btn btn-xs btn-info", method: :delete) %></li>
