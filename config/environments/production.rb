@@ -10,8 +10,13 @@ Rails.application.configure do
   # Rake tasks automatically ignore this option for performance.
   config.eager_load = true
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.default_url_options = { :host => 'evening-woodland-37952.herokuapp.com', :protocol => 'https'}
+  config.action_mailer.default_url_options = { :host => 'powerful-tundra-44354.herokuapp.com', :protocol => 'https'}
   
+
+  config.action_cable.url = "wss://powerful-tundra-44354.herokuapp.com/cable"
+  config.action_cable.allowed_request_origins = [/http:\/\/*/,/https:\/\/*/]
+
+
   # Full error reports are disabled and caching is turned on.
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
