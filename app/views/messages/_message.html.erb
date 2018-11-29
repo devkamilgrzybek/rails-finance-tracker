@@ -1,12 +1,6 @@
-<div class="card">
-  <div class="card-block">
-    <div class="row">
-      <div class="col-md-8">
-        <p class="card-text">
-          <span class="text-muted"><%= message.user.full_name %> at <%= message.created_at %> says</span><br>
-          <%= message.body %>
-        </p>
-      </div>
-    </div>
-  </div>
-</div>
+<p>
+  <b><%= message.user.full_name %></b>: <%= message.created_at %><br>
+  <%= message.body %>
+</p>
+
+
