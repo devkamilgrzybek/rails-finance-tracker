@@ -53,3 +53,7 @@
   max-height: 600px;
   overflow: auto;
 }
+
+.btn {
+  margin-top: 5px;
+}

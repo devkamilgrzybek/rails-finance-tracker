@@ -4,12 +4,15 @@
 
 <% if @chatrooms %>
   <ul>
-    <% @chatrooms.each do |chat| %>
-      <li><%= link_to "Enter #{chat.topic}", chatroom_path(chat), class: 'btn btn-primary' %>
-      <%= link_to "Delete this chatroom", chatroom_path(chat), 
-                        method: :delete,
-                        data: {confirm: "Are you sure?"}, 
-                        class: "btn btn-md btn-danger" %></li>
+    <% @chatrooms.each do |chat| %>   
+      <li>
+        <strong><%= chat.topic %></strong>
+        <%= link_to "Enter", chatroom_path(chat), class: 'btn btn-xs btn-primary' %>
+        <%= link_to "Delete this chatroom", chatroom_path(chat), 
+                          method: :delete,
+                          data: {confirm: "Are you sure?"}, 
+                          class: "btn btn-xs btn-danger" %>
+      </li>
     <% end %>
   </ul>
 <% end %>
