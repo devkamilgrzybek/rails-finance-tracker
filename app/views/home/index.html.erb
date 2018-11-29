@@ -1,2 +1,24 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<h1>Welcome to my portfolio Stock tracker</h1>
+<div>
+  <h3>
+    Hello as tryout i wrote simple stock-tracking app<br/>
+    It functions as a strock tracking social app<br/>
+    <br/>
+    App allows You to:
+    <ul>
+      <li>Track stock prizes searched by Ticker</li>
+      <li>Add up to 10 stocks to your portfolio</li>
+      <li>Search for friends</li>
+      <li>Create chatRooms & chat in real time with other Users</li>
+    </ul>
+    <div class="container">
+      There are two TEST accounts:<br>
+      email: 1484313@gmail.com<br>
+      email: aaa@wp.pl<br>
+      password: password<br>
+    </div>
+    Use button 'Sign in' for testing
+    <%= link_to('Sign In', new_user_session_path, class: 'btn btn-md btn-primary', title: 'Sign In') %>
+    <a target="_blank" rel="noopener noreferrer" href="https://github.com/devkamilgrzybek/rails-finance-tracker", class="btn btn-md btn-success" >GitHub</a>    
+  </h3>
+</div>
