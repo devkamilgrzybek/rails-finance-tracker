@@ -6,6 +6,14 @@ class ChatroomsController < ApplicationController
   def show
     @chatroom = Chatroom.find(params[:id])
     @message = Message.new
+
+    if params[:id].blank?
+      flash.now[:danger] = "Chat with that name doesn't exist"
+    end
+
+    respond_to do |format|
+      format.js { render partial: 'chatrooms/show' }
+    end
   end
 
   def new

@@ -54,6 +54,15 @@
   overflow: auto;
 }
 
+.panel-chat {
+  max-height: 350px;
+  overflow: auto;
+}
+
 .btn {
   margin-top: 5px;
+}
+
+.stocks-container {
+  margin-left: 60px;
 }
