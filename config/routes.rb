@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   
   mount ActionCable.server => '/cable'
 
-  resources :chatrooms, param: :id
+  resources :chatrooms, param: :id, except: [:index]
   resources :messages
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

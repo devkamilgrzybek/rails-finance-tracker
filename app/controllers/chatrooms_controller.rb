@@ -24,7 +24,7 @@ class ChatroomsController < ApplicationController
     @chatroom = current_user.chatrooms.build(chat_room_params)
     if @chatroom.save
       flash[:success] = 'Chat room added!'
-      redirect_to chatrooms_path
+      redirect_to my_portfolio_path
     else
       render 'new'
     end
@@ -38,6 +38,6 @@ class ChatroomsController < ApplicationController
     @chatroom = Chatroom.find(params[:id])
     @chatroom.destroy
     flash[:notice] = "Chatroom was successfully removed"
-    redirect_to chatrooms_path
+    redirect_to my_portfolio_path
   end 
 end
