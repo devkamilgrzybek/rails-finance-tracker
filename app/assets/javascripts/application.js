@@ -16,3 +16,12 @@
 //= require activestorage
 //= require_tree .
 //= require_tree ./channels
+
+$(document).ready(function(){
+  $(".showChat").click(function(){
+      $(".showChat").hide();
+  });
+  $(".closeChat").click(function(){
+      $(".showChat").show();
+  });
+});
