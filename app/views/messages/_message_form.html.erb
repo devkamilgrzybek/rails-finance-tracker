@@ -1,7 +1,6 @@
 <%= form_for message, remote: true, authenticity_token: true do |f| %>
-  <%= f.label :your_message %>:
-  <%= f.text_area :body, class: "form-control", data: {textarea: "message"} %>
+  <%= f.text_area :body, class: "form-control", data: {textarea: "message"}, class: "col-md-8" %>
 
   <%= f.hidden_field :chatroom_id, value: chatroom.id %>
-  <%= f.submit "send", class: "btn btn-primary", data: {send: "message"} %>
+  <%= f.submit "send", class: "btn btn-primary test", data: {send: "message"} %>
 <% end %>

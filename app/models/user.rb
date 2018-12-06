@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  scope :active_users, -> { where.not(confirmed_at: nil) }
+  scope :unconfirmed_users, -> { where(confirmed_at: nil) }
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :confirmable,
@@ -9,6 +11,8 @@ class User < ApplicationRecord
   has_many :friends, through: :friendships
   has_many :messages
   has_many :chatrooms, through: :messages
+
+  validates_presence_of :first_name, :last_name, :email
 
   def full_name
     return "#{first_name} #{last_name}".strip if (first_name || last_name)
