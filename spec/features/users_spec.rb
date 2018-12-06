@@ -64,8 +64,8 @@ RSpec.feature "Features Users", type: :feature do
 
       visit(edit_user_registration_path(user))
       # click_link('Cancel my account')
-      click_link('Cancel my account')
-
+      
+      expect { click_link('Cancel my account').to change(User,:count).by(-1) }
       expect(page).to have_content('Bye! Your account has been successfully cancelled. We hope to see you again soon.')
     end   
   end
