@@ -12,29 +12,37 @@ RSpec.feature "Features Users", type: :feature do
   context 'create new user' do
     before(:each) do
       visit new_user_registration_path
+      
       within('form') do
-        fill_in "user_first_name", with: "jhon"
-        fill_in 'user_last_name', with: 'doe'
-        fill_in 'user_email', with: 'eloelo@wp.pl'
+        @email = Faker::Internet.email
+        fill_in "user_first_name", with: "janusz"
+        fill_in 'user_last_name', with: "janusz"
+        fill_in 'user_email', with: @email
         fill_in 'user_password', with: '123456'
       end
     end
-
+  
     scenario "should be successfull" do
       within('form') do
         fill_in 'user_password_confirmation', with: '123456'
       end
+
       click_button 'Sign up'
       expect(page).to have_content('A message with a confirmation link has been sent to your email address.')
-      open_email('eloelo@wp.pl')
+      
+      open_email(@email)
       expect(current_email.find('a')[:href]).not_to be(nil) 
       visit(current_email.find('a')[:href])
       expect(page).to have_content('Your email address has been successfully confirmed')
     end
 
     scenario "should fail" do
+      within('form') do
+        fill_in 'user_password_confirmation', with: 'aaaa'
+      end
+
       click_button 'Sign up'
-      expect(page).to have_content('Password confirmation doesn\'t match Password')
+      expect(page).to have_content('Password confirmation doesn')
     end
   end
 
